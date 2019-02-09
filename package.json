@@ -1,0 +1,47 @@
+{
+  "name": "@entipic/data",
+  "version": "1.0.0",
+  "description": "Entipic data module",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "scripts": {
+    "pretest": "npm run clean && npm run tsc",
+    "test": "ava --no-cache --verbose lib/**/*.test.js",
+    "posttest": "npm run clean-test-code",
+    "tsc": "tsc",
+    "tscw": "tsc -w",
+    "preversion": "npm run tsc",
+    "postversion": "git push --follow-tags",
+    "prepublishOnly": "npm run tsc && npm run clean-test-code",
+    "clean": "rimraf ./lib",
+    "clean-test-code": "rimraf ./lib/**/*.test.js"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/entipic/data.git"
+  },
+  "keywords": [
+    "entipic",
+    "data"
+  ],
+  "author": "Dumitru Cantea",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/entipic/data/issues"
+  },
+  "homepage": "https://github.com/entipic/data#readme",
+  "devDependencies": {
+    "@types/mongodb": "^3.1.19",
+    "@types/node": "10.12.24",
+    "ava": "~0.25.x",
+    "rimraf": "^2.6.3",
+    "typescript": "3.3.3"
+  },
+  "dependencies": {
+    "mongo-item": "^0.1.0",
+    "mongodb": "^3.1.13"
+  }
+}
