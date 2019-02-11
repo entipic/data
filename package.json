@@ -41,6 +41,7 @@
     "typescript": "3.3.3"
   },
   "dependencies": {
+    "@entipic/domain": "^1.1.0",
     "mongo-item": "^0.1.0",
     "mongodb": "^3.1.13"
   }
