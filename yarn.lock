@@ -49,10 +49,10 @@
   dependencies:
     arrify "^1.0.1"
 
-"@entipic/domain@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@entipic/domain/-/domain-1.1.0.tgz#4900984c1b7c3e82b2030abbeaeddbb8223b46d2"
-  integrity sha512-6FKkl/bjZV73qZkluUFw0AVfBOIMxG5qrPshiqHuIGoz8GfvDWBfu0urnjoKYVuXWgoOPJAq+L6Iw8RWZhK7zg==
+"@entipic/domain@~1.x.x":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@entipic/domain/-/domain-1.1.1.tgz#41a7676cf4bf7660daf9307eeb82790213e88975"
+  integrity sha512-G4Nwulr+HpFBEResyjsDuIZF+8gral4ehCtwRVknVm9v9OtBUo84DNBaakT0ZwtOgIrrNq7eC19v1wogzY6UxQ==
   dependencies:
     atonic "^1.0.4"
     ava "~0.25.x"
