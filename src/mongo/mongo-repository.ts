@@ -22,6 +22,10 @@ export class MongoRepository<T extends BaseEntity> extends BaseRepository<T> imp
         await this.model.createStorage();
     }
 
+    countTotal() {
+        return this.model.count({});
+    }
+
     getById(id: string, options?: RepositoryAccessOptions<T>): Promise<T | null> {
         return this.model.getById(id, optionsToMongoOptions(options));
     }
