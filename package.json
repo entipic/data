@@ -1,6 +1,6 @@
 {
   "name": "@entipic/data",
-  "version": "1.2.1",
+  "version": "1.2.3",
   "description": "Entipic data module",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
@@ -40,7 +40,7 @@
     "typescript": "^4.6.3"
   },
   "dependencies": {
-    "@entipic/domain": "^1.2.x",
+    "@entipic/domain": "^1.2.1",
     "mongo-item": "^0.1.0",
     "mongodb": "^3.1.13"
   }
