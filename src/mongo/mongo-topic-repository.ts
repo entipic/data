@@ -1,37 +1,52 @@
 import { MongoRepository } from "./mongo-repository";
 import { MongoWhereParams } from "mongo-item";
-import { Topic, TopicRepository, RepositoryAccessOptions, TopicsListParams } from "@entipic/domain";
+import {
+  Topic,
+  TopicRepository,
+  RepositoryAccessOptions,
+  TopicsListParams
+} from "@entipic/domain";
 
-export class MongoTopicRepository extends MongoRepository<Topic>
-    implements TopicRepository {
+export class MongoTopicRepository
+  extends MongoRepository<Topic>
+  implements TopicRepository
+{
+  topicBySlug(
+    slug: string,
+    _options?: RepositoryAccessOptions<Topic>
+  ): Promise<Topic | null> {
+    return this.model.findOne({
+      where: { slug }
+    });
+  }
 
-    topicBySlug(slug: string, _options?: RepositoryAccessOptions<Topic>): Promise<Topic> {
-        return this.model.findOne({
-            where: { slug },
-        });
-    }
+  popularTopics(
+    params: TopicsListParams,
+    options?: RepositoryAccessOptions<Topic>
+  ): Promise<Topic[]> {
+    options = options || {};
 
-    popularTopics(params: TopicsListParams, options?: RepositoryAccessOptions<Topic>): Promise<Topic[]> {
-        options = options || {};
+    const where: MongoWhereParams = {};
 
-        const where: MongoWhereParams = {};
+    return this.model.find({
+      where,
+      limit: params.limit,
+      sort: ["-popularity"]
+    });
+  }
 
-        return this.model.find({
-            where,
-            limit: params.limit,
-            sort: ['-popularity'],
-        });
-    }
+  latestTopics(
+    params: TopicsListParams,
+    options?: RepositoryAccessOptions<Topic>
+  ): Promise<Topic[]> {
+    options = options || {};
 
-    latestTopics(params: TopicsListParams, options?: RepositoryAccessOptions<Topic>): Promise<Topic[]> {
-        options = options || {};
+    const where: MongoWhereParams = {};
 
-        const where: MongoWhereParams = {};
-
-        return this.model.find({
-            where,
-            limit: params.limit,
-            sort: ['-createdAt'],
-        });
-    }
+    return this.model.find({
+      where,
+      limit: params.limit,
+      sort: ["-createdAt"]
+    });
+  }
 }
