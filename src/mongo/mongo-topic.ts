@@ -7,25 +7,25 @@ export class MongoTopic extends MongoItem<Topic> {
     super(db, `entipic_topics_${tableSuffix}`);
   }
 
-  async createStorage() {
+  override async createStorage() {
     await super.createStorage();
 
     await this.collection.createIndex({ createdAt: 1 });
     await this.collection.createIndex({ slug: 1 }, { unique: true });
   }
 
-  protected beforeCreate(data: Topic) {
+  protected override beforeCreate(data: Topic) {
     return super.beforeCreate(data);
   }
 
-  protected beforeUpdate(data: RepositoryUpdateData<Topic>) {
+  protected override beforeUpdate(data: RepositoryUpdateData<Topic>) {
     // data.set = data.set || {};
     // data.set.updatedAt = data.set.updatedAt || unixTime();
 
     return super.beforeUpdate(data);
   }
 
-  protected convertFromMongoDoc(doc: any) {
+  protected override convertFromMongoDoc(doc: any) {
     const item = super.convertFromMongoDoc(doc);
 
     return item;
