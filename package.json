@@ -1,6 +1,6 @@
 {
   "name": "@entipic/data",
-  "version": "1.2.4",
+  "version": "1.2.6",
   "description": "Entipic data module",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
@@ -17,7 +17,7 @@
     "clean-test-code": "rimraf ./lib/**/*.test.js"
   },
   "engines": {
-    "node": ">=16.4.2"
+    "node": ">=14"
   },
   "repository": {
     "type": "git",
@@ -34,14 +34,13 @@
   },
   "homepage": "https://github.com/entipic/data#readme",
   "devDependencies": {
-    "@types/mongodb": "^3.1.19",
     "ava": "~0.25.x",
     "rimraf": "^2.6.3",
     "typescript": "^4.6.3"
   },
   "dependencies": {
-    "@entipic/domain": "^1.2.6",
-    "mongo-item": "^0.1.0",
-    "mongodb": "^3.1.13"
+    "@entipic/domain": "^1.2.9",
+    "mongo-item": "^0.2.1",
+    "mongodb": "^4.16.0"
   }
 }
